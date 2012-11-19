@@ -1,0 +1,4 @@
+task :default do
+  sh "glpsol -m low_blood_pressure -d datafile -o result"
+  sh "less result"
+end

@@ -1,0 +1,27 @@
+set recipes;
+var x{recipes} binary;
+
+param price{recipes};
+param protein{recipes};
+param lipid{recipes};
+param calcium{recipes};
+param iron{recipes};
+param calorie{recipes};
+
+maximize F:
+  sum{i in recipes} price[i] * x[i];
+
+s.t. PRICE:
+  sum{i in recipes} price[i] * x[i] <= 400;
+s.t. PROTEIN:
+  sum{i in recipes} protein[i] * x[i] >= 30;
+s.t. LIPID:
+  sum{i in recipes} lipid[i] * x[i] >= 19;
+s.t. CALCIUM:
+  sum{i in recipes} calcium[i] * x[i] >= 200;
+s.t. IRON:
+  sum{i in recipes} iron[i] * x[i] >= 4;
+s.t. CALORIE:
+  sum{i in recipes} calorie[i] * x[i] >= 600;
+
+end;
